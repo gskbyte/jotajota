@@ -11,10 +11,14 @@ import SpriteKit
 
 class Ball: SKSpriteNode {
     init() {
-        let texture = SKTexture(imageNamed:"ball")
-        super.init(texture: texture, color: nil, size: CGSizeMake(24, 24))
-        self.name = "ball"
+        let radius : CGFloat = 22
 
+        let texture = SKTexture(imageNamed:"ball")
+        super.init(texture: texture, color: nil, size: CGSizeMake(radius*2, radius*2))
+        self.name = "ball"
+        self.physicsBody = SKPhysicsBody(circleOfRadius: radius)
+        self.physicsBody?.friction = 0.0
+        self.physicsBody?.restitution = 0.8
     }
 
     required init(coder aDecoder: NSCoder) {
