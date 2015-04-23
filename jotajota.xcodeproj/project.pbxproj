@@ -21,6 +21,8 @@
 		C09A63EB1AE938DB00B07062 /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09A63EA1AE938DB00B07062 /* Goal.swift */; };
 		C09A63ED1AE93A0200B07062 /* goal.png in Resources */ = {isa = PBXBuildFile; fileRef = C09A63EC1AE93A0200B07062 /* goal.png */; };
 		C09A63EF1AE93CEB00B07062 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09A63EE1AE93CEB00B07062 /* Common.swift */; };
+		C09A63F11AE93EC100B07062 /* Interruptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09A63F01AE93EC100B07062 /* Interruptor.swift */; };
+		C09A63F31AE940E400B07062 /* spike.png in Resources */ = {isa = PBXBuildFile; fileRef = C09A63F21AE940E400B07062 /* spike.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +54,8 @@
 		C09A63EA1AE938DB00B07062 /* Goal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Goal.swift; sourceTree = "<group>"; };
 		C09A63EC1AE93A0200B07062 /* goal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = goal.png; sourceTree = "<group>"; };
 		C09A63EE1AE93CEB00B07062 /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
+		C09A63F01AE93EC100B07062 /* Interruptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interruptor.swift; sourceTree = "<group>"; };
+		C09A63F21AE940E400B07062 /* spike.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spike.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +143,7 @@
 				C09A63E51AE930F800B07062 /* Spike.swift */,
 				C09A63EA1AE938DB00B07062 /* Goal.swift */,
 				C09A63EE1AE93CEB00B07062 /* Common.swift */,
+				C09A63F01AE93EC100B07062 /* Interruptor.swift */,
 			);
 			name = Objects;
 			sourceTree = "<group>";
@@ -148,6 +153,7 @@
 			children = (
 				C09A63EC1AE93A0200B07062 /* goal.png */,
 				C09A63E81AE9328700B07062 /* ball.png */,
+				C09A63F21AE940E400B07062 /* spike.png */,
 			);
 			name = Sprites;
 			sourceTree = "<group>";
@@ -236,6 +242,7 @@
 				C09A63ED1AE93A0200B07062 /* goal.png in Resources */,
 				C09A63C81AE92F6500B07062 /* Images.xcassets in Resources */,
 				C09A63E91AE9328700B07062 /* ball.png in Resources */,
+				C09A63F31AE940E400B07062 /* spike.png in Resources */,
 				C09A63C61AE92F6500B07062 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -262,6 +269,7 @@
 				C09A63E61AE930F800B07062 /* Spike.swift in Sources */,
 				C09A63BD1AE92F6500B07062 /* AppDelegate.swift in Sources */,
 				C09A63EB1AE938DB00B07062 /* Goal.swift in Sources */,
+				C09A63F11AE93EC100B07062 /* Interruptor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

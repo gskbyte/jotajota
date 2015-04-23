@@ -11,7 +11,9 @@ import SpriteKit
 class GameScene: SKScene {
     var ball : Ball!
     var goal : Goal!
+    var interruptors = Array<Interruptor>()
     var bars = Array<Bar>()
+    var spikes = Array<Spike>()
 
     override func didMoveToView(view: SKView) {
         super.didMoveToView(view)
@@ -19,6 +21,8 @@ class GameScene: SKScene {
         setupGoal()
         setupBall()
         setupBars()
+        setupInterruptors()
+        setupSpikes()
     }
 
     func setupWorld() {
@@ -44,7 +48,19 @@ class GameScene: SKScene {
         bar0.position = CGPointMake(self.size.width / 2, 100)
         self.addChild(bar0)
     }
-    
+
+    func setupInterruptors() {
+        let interruptor = Interruptor()
+        interruptor.position = CGPointMake(20, 20)
+        self.addChild(interruptor)
+    }
+
+    func setupSpikes() {
+        let spike = Spike()
+        spike.position = CGPointMake(80, 20)
+        self.addChild(spike)
+    }
+
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
         /* Called when a touch begins */
         
