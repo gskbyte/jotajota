@@ -20,7 +20,7 @@ class Ball: SKSpriteNode {
         self.name = "ball"
         self.physicsBody = SKPhysicsBody(circleOfRadius: radius)
         self.physicsBody?.friction = 0.0
-        self.physicsBody?.restitution = 0.4
+        self.physicsBody?.restitution = 0.75
 
         self.physicsBody?.categoryBitMask = BallCategory
         self.physicsBody?.collisionBitMask = CollidableCategory

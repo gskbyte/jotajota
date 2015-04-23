@@ -40,36 +40,56 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
     func setupBall() {
         ball = Ball()
-        ball.position = CGPointMake(300, frame.size.height)
+        ball.position = CGPointMake(320, frame.size.height)
         self.addChild(ball)
     }
 
     func setupGoal () {
         goal = Goal()
-        goal.position = CGPointMake(size.width / 2 + 1, 200)
+        goal.position = CGPointMake(30, 340)
         self.addChild(goal)
     }
 
     func setupPhase0() {
         var bar = makeBar(200)
-        bar.position = CGPointMake(300, 500)
+        bar.position = CGPointMake(320, 500)
         bar.zRotation = 0.3
 
         bar = makeBar(200)
-        bar.position = CGPointMake(60, 480)
+        bar.position = CGPointMake(60, 470)
         bar.zRotation = -0.2;
 
-        let spike = makeSpike()
+        var spike = makeSpike()
         spike.position = CGPointMake(190, 450)
 
-        let interruptor = makeInterruptor()
+        var interruptor = makeInterruptor()
         interruptor.position = CGPointMake(60, 520)
         interruptor.spike = spike
 
+        spike = makeSpike()
+        spike.position = CGPointMake(20, 520)
     }
 
     func setupPhase1() {
+        var bar : Bar!
+        var spike : Spike!
+        var interruptor : Interruptor!
 
+        bar = makeBar(150)
+        bar.position = CGPointMake(300, 400)
+        bar.zRotation = 1.5;
+
+        bar = makeBar(100)
+        bar.position = CGPointMake(240, 320)
+        bar.zRotation = 0;
+        bar.physicsBody?.restitution = 0.5
+
+        spike = makeSpike()
+        spike.position = CGPointMake(160, 310)
+
+        bar = makeBar(120)
+        bar.position = CGPointMake(70, 320)
+        bar.zRotation = 0;
     }
 
     func setupPhase2() {
