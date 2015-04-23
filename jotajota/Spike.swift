@@ -22,8 +22,8 @@ class Spike: SKSpriteNode {
         self.physicsBody?.restitution = 0.4
 
         self.physicsBody?.categoryBitMask = SpikeCategory
-        self.physicsBody?.contactTestBitMask = BallCategory
-        self.physicsBody?.collisionBitMask = BallCategory
+        self.physicsBody?.contactTestBitMask = CollidableCategory
+        self.physicsBody?.collisionBitMask = CollidableCategory
     }
 
     required init(coder aDecoder: NSCoder) {

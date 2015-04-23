@@ -151,9 +151,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
 
         var spike : Spike?
-        if (contact.bodyA.categoryBitMask == InterruptorCategory) {
+        if (contact.bodyA.categoryBitMask == SpikeCategory) {
             spike = contact.bodyA.node as! Spike?
-        } else if (contact.bodyB.categoryBitMask == InterruptorCategory) {
+        } else if (contact.bodyB.categoryBitMask == SpikeCategory) {
             spike = contact.bodyB.node as! Spike?
         }
         
