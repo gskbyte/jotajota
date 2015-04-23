@@ -10,5 +10,15 @@ import UIKit
 import SpriteKit
 
 class Ball: SKSpriteNode {
-   
+    init() {
+        let texture = SKTexture(imageNamed:"ball")
+        super.init(texture: texture, color: nil, size: CGSizeMake(24, 24))
+        self.name = "ball"
+
+    }
+
+    required init(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
 }

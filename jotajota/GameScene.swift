@@ -9,14 +9,12 @@
 import SpriteKit
 
 class GameScene: SKScene {
+    var ball : Ball!
+
     override func didMoveToView(view: SKView) {
-        /* Setup your scene here */
-        let myLabel = SKLabelNode(fontNamed:"Chalkduster")
-        myLabel.text = "Hello, World!";
-        myLabel.fontSize = 65;
-        myLabel.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame));
-        
-        self.addChild(myLabel)
+        ball = Ball()
+        ball.position = CGPointMake(frame.size.width / 2, frame.size.height - 30)
+        self.addChild(ball)
     }
     
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
