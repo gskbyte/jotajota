@@ -9,7 +9,7 @@
 import SpriteKit
 import CoreMotion
 
-class GameScene: SKScene {
+class GameScene: SKScene, SKPhysicsContactDelegate {
     var ball : Ball!
     var goal : Goal!
     var interruptors = Array<Interruptor>()
@@ -22,9 +22,12 @@ class GameScene: SKScene {
         setupWorld()
         setupGoal()
         setupBall()
-        setupBars()
-        setupInterruptors()
-        setupSpikes()
+
+        setupPhase0()
+        setupPhase1()
+        setupPhase2()
+        setupPhase3()
+
         motionManager = CMMotionManager()
         motionManager!.startAccelerometerUpdates()
     }
@@ -32,7 +35,7 @@ class GameScene: SKScene {
     func setupWorld() {
         self.physicsWorld.gravity = CGVectorMake(0, -9.8)
         self.physicsBody = SKPhysicsBody(edgeLoopFromRect: self.frame)
-
+        self.physicsWorld.contactDelegate = self;
     }
 
     func setupBall() {
@@ -47,49 +50,109 @@ class GameScene: SKScene {
         self.addChild(goal)
     }
 
-    func setupBars() {
-        var bar = Bar(width: 200)
+    func setupPhase0() {
+        var bar = makeBar(200)
         bar.position = CGPointMake(300, 500)
-        bar.zRotation = 0.3;
-        self.addChild(bar)
+        bar.zRotation = 0.3
 
-        bar = Bar(width: 200)
+        bar = makeBar(200)
         bar.position = CGPointMake(60, 480)
         bar.zRotation = -0.2;
-        self.addChild(bar)
+
+        let spike = makeSpike()
+        spike.position = CGPointMake(190, 450)
+
+        let interruptor = makeInterruptor()
+        interruptor.position = CGPointMake(60, 520)
+        interruptor.spike = spike
 
     }
 
-    func setupInterruptors() {
-        let interruptor = Interruptor()
-        interruptor.position = CGPointMake(20, 20)
-        self.addChild(interruptor)
+    func setupPhase1() {
+
     }
 
-    func setupSpikes() {
+    func setupPhase2() {
+
+    }
+
+    func setupPhase3() {
+
+    }
+
+    var spikeId = 0
+    func makeSpike() -> Spike {
         let spike = Spike()
-        spike.position = CGPointMake(80, 20)
-        self.addChild(spike)
+        spike.name = "spike\(spikeId)"
+        addChild(spike)
+        spikeId++
+        return spike
+    }
+
+    var interruptorId = 0
+    func makeInterruptor() -> Interruptor {
+        let interruptor = Interruptor()
+        interruptor.name = "interruptor\(interruptorId)"
+        addChild(interruptor)
+        interruptorId++
+        return interruptor
+    }
+
+    var barId = 0
+    func makeBar(width: CGFloat) -> Bar {
+        let bar = Bar(width: width)
+        bar.name = "bar\(barId)"
+        addChild(bar)
+        barId++
+        return bar
+    }
+
+    func didBeginContact(contact: SKPhysicsContact) {
+        if(contact.bodyA != ball.physicsBody && contact.bodyB != ball.physicsBody) {
+            return
+        }
+        var interruptor : Interruptor?
+        if (contact.bodyA.categoryBitMask == InterruptorCategory) {
+            interruptor = contact.bodyA.node as! Interruptor?
+        } else if (contact.bodyB.categoryBitMask == InterruptorCategory) {
+            interruptor = contact.bodyB.node as! Interruptor?
+        }
+
+        if interruptor != nil {
+            interruptor?.spike?.removeFromParent()
+            return
+        }
+
+        var spike : Spike?
+        if (contact.bodyA.categoryBitMask == InterruptorCategory) {
+            spike = contact.bodyA.node as! Spike?
+        } else if (contact.bodyB.categoryBitMask == InterruptorCategory) {
+            spike = contact.bodyB.node as! Spike?
+        }
+
+        if spike != nil {
+            fatalError("you die")
+        }
     }
 
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
         /* Called when a touch begins */
         
-        for touch in (touches as! Set<UITouch>) {
-            let location = touch.locationInNode(self)
-            
-            let sprite = SKSpriteNode(imageNamed:"Spaceship")
-            
-            sprite.xScale = 0.5
-            sprite.yScale = 0.5
-            sprite.position = location
-            
-            let action = SKAction.rotateByAngle(CGFloat(M_PI), duration:1)
-            
-            sprite.runAction(SKAction.repeatActionForever(action))
-            
-            self.addChild(sprite)
-        }
+//        for touch in (touches as! Set<UITouch>) {
+//            let location = touch.locationInNode(self)
+//            
+//            let sprite = SKSpriteNode(imageNamed:"Spaceship")
+//            
+//            sprite.xScale = 0.5
+//            sprite.yScale = 0.5
+//            sprite.position = location
+//            
+//            let action = SKAction.rotateByAngle(CGFloat(M_PI), duration:1)
+//            
+//            sprite.runAction(SKAction.repeatActionForever(action))
+//            
+//            self.addChild(sprite)
+//        }
     }
    
     override func update(currentTime: CFTimeInterval) {

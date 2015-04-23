@@ -10,6 +10,8 @@ import UIKit
 import SpriteKit
 
 class Interruptor: SKSpriteNode {
+    weak var spike : Spike?
+
     init() {
         let size = CGSizeMake(30, 30)
 
@@ -17,7 +19,9 @@ class Interruptor: SKSpriteNode {
         self.name = "interruptor"
         self.physicsBody = SKPhysicsBody(rectangleOfSize: size)
         self.physicsBody?.dynamic = false
-        self.physicsBody?.categoryBitMask = NonCollidableCategory
+        self.physicsBody?.categoryBitMask = InterruptorCategory
+        self.physicsBody?.collisionBitMask = 0
+        self.physicsBody?.contactTestBitMask = BallCategory
     }
 
     required init(coder aDecoder: NSCoder) {

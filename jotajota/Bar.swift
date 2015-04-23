@@ -13,10 +13,14 @@ class Bar: SKSpriteNode {
     var movable = false
     var rotable = false
 
-    init(width : CGFloat) {
+    init(width: CGFloat) {
         super.init(texture: nil, color: UIColor.redColor(), size: CGSizeMake(width, 10))
         self.physicsBody = SKPhysicsBody(rectangleOfSize: size)
         self.physicsBody?.dynamic = false
+
+        self.physicsBody?.categoryBitMask = BarCategory
+        self.physicsBody?.contactTestBitMask = BallCategory
+        self.physicsBody?.collisionBitMask = BallCategory
     }
 
     required init?(coder aDecoder: NSCoder) {
