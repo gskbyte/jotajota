@@ -76,19 +76,10 @@ class GameScene: SKScene {
         /* Called when a touch begins */
         
         for touch in (touches as! Set<UITouch>) {
-            let location = touch.locationInNode(self)
             
-            let sprite = SKSpriteNode(imageNamed:"Spaceship")
-            
-            sprite.xScale = 0.5
-            sprite.yScale = 0.5
-            sprite.position = location
-            
-            let action = SKAction.rotateByAngle(CGFloat(M_PI), duration:1)
-            
-            sprite.runAction(SKAction.repeatActionForever(action))
-            
-            self.addChild(sprite)
+//            ball.physicsBody?.applyForce(CGVectorMake(0, -9.8))
+//            println("La velocidad es: \(ball.physicsBody?.velocity.dy)")
+//            ball.physicsBody?.velocity = CGVectorMake(0, -9.8)
         }
     }
    
@@ -100,13 +91,23 @@ class GameScene: SKScene {
     func processUserMotionForUpdate(currentTime: NSTimeInterval) {
         if let motionData = motionManager!.accelerometerData {
         let acceleration = motionData.acceleration
-            if (fabs(acceleration.x) > 0.2) {
-                let currentGravity = self.physicsWorld.gravity
-                
-                let finalGravity = CGVectorMake(currentGravity.dx + CGFloat(acceleration.x), currentGravity.dy + CGFloat(acceleration.y))
-                ball.physicsBody!.applyForce(CGVectorMake(CGFloat(motionData.acceleration.x), CGFloat(0.0)))
+            if (fabs(acceleration.x) > 0.2 || fabs(acceleration.y) > 0.2) {
+                let currentGravity = self.physicsWorld.gravity                
+                let finalGravity = CGVectorMake(currentGravity.dx + CGFloat(acceleration.x)*20, currentGravity.dy + CGFloat(acceleration.y)*20)
+                physicsWorld.gravity = self.normalizeVector(finalGravity)
             }
         }
+    }
+    
+    func normalizeVector(vector:CGVector) -> CGVector {
+    let length = hypotf(Float(vector.dx), Float(vector.dy));
+    
+    if length == 0 {
+        return CGVectorMake(0, 0);
+    }
+    
+    let scale = 9.8 / length;
+    return CGVectorMake(vector.dx * CGFloat(scale), vector.dy * CGFloat(scale));
     }
     
 }
