@@ -7,11 +7,13 @@
 //
 
 import SpriteKit
+import CoreMotion
 
 class GameScene: SKScene {
     var ball : Ball!
     var goal : Goal!
     var interruptors = Array<Interruptor>()
+    var motionManager : CMMotionManager!
     var bars = Array<Bar>()
     var spikes = Array<Spike>()
 
@@ -23,6 +25,8 @@ class GameScene: SKScene {
         setupBars()
         setupInterruptors()
         setupSpikes()
+        motionManager = CMMotionManager()
+        motionManager!.startAccelerometerUpdates()
     }
 
     func setupWorld() {
@@ -90,5 +94,19 @@ class GameScene: SKScene {
    
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
+        self.processUserMotionForUpdate(currentTime)
     }
+    
+    func processUserMotionForUpdate(currentTime: NSTimeInterval) {
+        if let motionData = motionManager!.accelerometerData {
+        let acceleration = motionData.acceleration
+            if (fabs(acceleration.x) > 0.2) {
+                let currentGravity = self.physicsWorld.gravity
+                
+                let finalGravity = CGVectorMake(currentGravity.dx + CGFloat(acceleration.x), currentGravity.dy + CGFloat(acceleration.y))
+                ball.physicsBody!.applyForce(CGVectorMake(CGFloat(motionData.acceleration.x), CGFloat(0.0)))
+            }
+        }
+    }
+    
 }

@@ -23,6 +23,7 @@
 		C09A63EF1AE93CEB00B07062 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09A63EE1AE93CEB00B07062 /* Common.swift */; };
 		C09A63F11AE93EC100B07062 /* Interruptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09A63F01AE93EC100B07062 /* Interruptor.swift */; };
 		C09A63F31AE940E400B07062 /* spike.png in Resources */ = {isa = PBXBuildFile; fileRef = C09A63F21AE940E400B07062 /* spike.png */; };
+		DFED5F3D1AE93D1500198B20 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFED5F3C1AE93D1500198B20 /* CoreMotion.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,7 @@
 		C09A63EE1AE93CEB00B07062 /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		C09A63F01AE93EC100B07062 /* Interruptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interruptor.swift; sourceTree = "<group>"; };
 		C09A63F21AE940E400B07062 /* spike.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spike.png; sourceTree = "<group>"; };
+		DFED5F3C1AE93D1500198B20 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DFED5F3D1AE93D1500198B20 /* CoreMotion.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,6 +82,7 @@
 		C09A63AE1AE92F6500B07062 = {
 			isa = PBXGroup;
 			children = (
+				DFED5F3C1AE93D1500198B20 /* CoreMotion.framework */,
 				C09A63B91AE92F6500B07062 /* jotajota */,
 				C09A63D31AE92F6500B07062 /* jotajotaTests */,
 				C09A63B81AE92F6500B07062 /* Products */,
@@ -465,6 +469,7 @@
 				C09A63DC1AE92F6500B07062 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C09A63DD1AE92F6500B07062 /* Build configuration list for PBXNativeTarget "jotajotaTests" */ = {
 			isa = XCConfigurationList;
@@ -473,6 +478,7 @@
 				C09A63DF1AE92F6500B07062 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
