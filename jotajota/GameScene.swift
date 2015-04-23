@@ -33,7 +33,7 @@ class GameScene: SKScene {
 
     func setupBall() {
         ball = Ball()
-        ball.position = CGPointMake(frame.size.width / 2, frame.size.height - 30)
+        ball.position = CGPointMake(300, frame.size.height)
         self.addChild(ball)
     }
 
@@ -44,9 +44,16 @@ class GameScene: SKScene {
     }
 
     func setupBars() {
-        let bar0 = Bar(width: 200)
-        bar0.position = CGPointMake(self.size.width / 2, 100)
-        self.addChild(bar0)
+        var bar = Bar(width: 200)
+        bar.position = CGPointMake(300, 500)
+        bar.zRotation = 0.3;
+        self.addChild(bar)
+
+        bar = Bar(width: 200)
+        bar.position = CGPointMake(60, 480)
+        bar.zRotation = -0.2;
+        self.addChild(bar)
+
     }
 
     func setupInterruptors() {
