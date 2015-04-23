@@ -20,6 +20,7 @@
 		C09A63E91AE9328700B07062 /* ball.png in Resources */ = {isa = PBXBuildFile; fileRef = C09A63E81AE9328700B07062 /* ball.png */; };
 		C09A63EB1AE938DB00B07062 /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09A63EA1AE938DB00B07062 /* Goal.swift */; };
 		C09A63ED1AE93A0200B07062 /* goal.png in Resources */ = {isa = PBXBuildFile; fileRef = C09A63EC1AE93A0200B07062 /* goal.png */; };
+		C09A63EF1AE93CEB00B07062 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09A63EE1AE93CEB00B07062 /* Common.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,7 @@
 		C09A63E81AE9328700B07062 /* ball.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ball.png; sourceTree = "<group>"; };
 		C09A63EA1AE938DB00B07062 /* Goal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Goal.swift; sourceTree = "<group>"; };
 		C09A63EC1AE93A0200B07062 /* goal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = goal.png; sourceTree = "<group>"; };
+		C09A63EE1AE93CEB00B07062 /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +138,7 @@
 				C09A63E31AE930DD00B07062 /* Bar.swift */,
 				C09A63E51AE930F800B07062 /* Spike.swift */,
 				C09A63EA1AE938DB00B07062 /* Goal.swift */,
+				C09A63EE1AE93CEB00B07062 /* Common.swift */,
 			);
 			name = Objects;
 			sourceTree = "<group>";
@@ -251,6 +254,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C09A63EF1AE93CEB00B07062 /* Common.swift in Sources */,
 				C09A63E41AE930DD00B07062 /* Bar.swift in Sources */,
 				C09A63E21AE930C900B07062 /* Ball.swift in Sources */,
 				C09A63C11AE92F6500B07062 /* GameScene.swift in Sources */,

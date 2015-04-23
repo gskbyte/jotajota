@@ -21,7 +21,10 @@ class Ball: SKSpriteNode {
         self.physicsBody = SKPhysicsBody(circleOfRadius: radius)
         self.physicsBody?.friction = 0.0
         self.physicsBody?.restitution = 0.8
-        self.physicsBody?.collisionBitMask = 1
+
+        self.physicsBody?.categoryBitMask = CollidableCategory
+        self.physicsBody?.collisionBitMask = CollidableCategory
+        self.physicsBody?.contactTestBitMask = CollidableCategory
     }
 
     required init(coder aDecoder: NSCoder) {
