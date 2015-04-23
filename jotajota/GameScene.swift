@@ -170,7 +170,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
 
         if goal != nil {
-            println("goal")
+            let scene = GameOverScene(size: self.size, playerWon:true)
+            self.view?.presentScene(scene)
         }
     }
 
