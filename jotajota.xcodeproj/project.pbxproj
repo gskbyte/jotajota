@@ -15,6 +15,9 @@
 		C09A63C81AE92F6500B07062 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C09A63C71AE92F6500B07062 /* Images.xcassets */; };
 		C09A63CB1AE92F6500B07062 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C09A63C91AE92F6500B07062 /* LaunchScreen.xib */; };
 		C09A63D71AE92F6500B07062 /* jotajotaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09A63D61AE92F6500B07062 /* jotajotaTests.swift */; };
+		C09A63E21AE930C900B07062 /* Ball.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09A63E11AE930C900B07062 /* Ball.swift */; };
+		C09A63E41AE930DD00B07062 /* Bar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09A63E31AE930DD00B07062 /* Bar.swift */; };
+		C09A63E61AE930F800B07062 /* Spike.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09A63E51AE930F800B07062 /* Spike.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +43,9 @@
 		C09A63D01AE92F6500B07062 /* jotajotaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = jotajotaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C09A63D51AE92F6500B07062 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C09A63D61AE92F6500B07062 /* jotajotaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jotajotaTests.swift; sourceTree = "<group>"; };
+		C09A63E11AE930C900B07062 /* Ball.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ball.swift; sourceTree = "<group>"; };
+		C09A63E31AE930DD00B07062 /* Bar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bar.swift; sourceTree = "<group>"; };
+		C09A63E51AE930F800B07062 /* Spike.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spike.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +87,7 @@
 		C09A63B91AE92F6500B07062 /* jotajota */ = {
 			isa = PBXGroup;
 			children = (
+				C09A63E01AE930B100B07062 /* Objects */,
 				C09A63BC1AE92F6500B07062 /* AppDelegate.swift */,
 				C09A63BE1AE92F6500B07062 /* GameScene.sks */,
 				C09A63C01AE92F6500B07062 /* GameScene.swift */,
@@ -116,6 +123,16 @@
 				C09A63D51AE92F6500B07062 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C09A63E01AE930B100B07062 /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				C09A63E11AE930C900B07062 /* Ball.swift */,
+				C09A63E31AE930DD00B07062 /* Bar.swift */,
+				C09A63E51AE930F800B07062 /* Spike.swift */,
+			);
+			name = Objects;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -219,8 +236,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C09A63E41AE930DD00B07062 /* Bar.swift in Sources */,
+				C09A63E21AE930C900B07062 /* Ball.swift in Sources */,
 				C09A63C11AE92F6500B07062 /* GameScene.swift in Sources */,
 				C09A63C31AE92F6500B07062 /* GameViewController.swift in Sources */,
+				C09A63E61AE930F800B07062 /* Spike.swift in Sources */,
 				C09A63BD1AE92F6500B07062 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
