@@ -128,9 +128,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
 
     func didBeginContact(contact: SKPhysicsContact) {
-        if(contact.bodyA != ball.physicsBody && contact.bodyB != ball.physicsBody) {
+        if(contact.bodyA.categoryBitMask != BallCategory && contact.bodyB.categoryBitMask != BallCategory) {
+            NSLog("no ball")
             return
         }
+
+        if(contact.bodyA.categoryBitMask == BarCategory || contact.bodyB.categoryBitMask == BarCategory) {
+            NSLog("bar")
+            return
+        }
+
         var interruptor : Interruptor?
         if (contact.bodyA.categoryBitMask == InterruptorCategory) {
             interruptor = contact.bodyA.node as! Interruptor?
@@ -152,6 +159,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
         if spike != nil {
             fatalError("you die")
+        }
+
+        var goal : Goal?
+        if (contact.bodyA.categoryBitMask == GoalCategory) {
+            goal = contact.bodyA.node as! Goal?
+        } else if (contact.bodyB.categoryBitMask == GoalCategory) {
+            goal = contact.bodyB.node as! Goal?
+        }
+
+        if goal != nil {
+            println("goal")
         }
     }
 
