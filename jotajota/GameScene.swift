@@ -156,9 +156,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         } else if (contact.bodyB.categoryBitMask == InterruptorCategory) {
             spike = contact.bodyB.node as! Spike?
         }
-
+        
         if spike != nil {
-            fatalError("you die")
+            let scene = GameOverScene(size: self.size, playerWon:false)
+            self.view?.presentScene(scene)
         }
 
         var goal : Goal?

@@ -24,6 +24,7 @@
 		C09A63F11AE93EC100B07062 /* Interruptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09A63F01AE93EC100B07062 /* Interruptor.swift */; };
 		C09A63F31AE940E400B07062 /* spike.png in Resources */ = {isa = PBXBuildFile; fileRef = C09A63F21AE940E400B07062 /* spike.png */; };
 		DFED5F3D1AE93D1500198B20 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFED5F3C1AE93D1500198B20 /* CoreMotion.framework */; };
+		DFED5F3F1AE94C3B00198B20 /* GameOverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFED5F3E1AE94C3B00198B20 /* GameOverScene.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 		C09A63F01AE93EC100B07062 /* Interruptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interruptor.swift; sourceTree = "<group>"; };
 		C09A63F21AE940E400B07062 /* spike.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spike.png; sourceTree = "<group>"; };
 		DFED5F3C1AE93D1500198B20 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		DFED5F3E1AE94C3B00198B20 /* GameOverScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOverScene.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 				C09A63E01AE930B100B07062 /* Objects */,
 				C09A63BC1AE92F6500B07062 /* AppDelegate.swift */,
 				C09A63C01AE92F6500B07062 /* GameScene.swift */,
+				DFED5F3E1AE94C3B00198B20 /* GameOverScene.swift */,
 				C09A63C21AE92F6500B07062 /* GameViewController.swift */,
 				C09A63C41AE92F6500B07062 /* Main.storyboard */,
 				C09A63C71AE92F6500B07062 /* Images.xcassets */,
@@ -265,6 +268,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DFED5F3F1AE94C3B00198B20 /* GameOverScene.swift in Sources */,
 				C09A63EF1AE93CEB00B07062 /* Common.swift in Sources */,
 				C09A63E41AE930DD00B07062 /* Bar.swift in Sources */,
 				C09A63E21AE930C900B07062 /* Ball.swift in Sources */,
