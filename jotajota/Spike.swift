@@ -16,7 +16,10 @@ class Spike: SKSpriteNode {
         let texture = SKTexture(imageNamed:"spike")
         super.init(texture: texture, color: nil, size: CGSizeMake(radius*2, radius*2))
         self.physicsBody = SKPhysicsBody(circleOfRadius: radius)
+
         self.physicsBody?.dynamic = false
+        self.physicsBody?.friction = 0.0
+        self.physicsBody?.restitution = 0.4
 
         self.physicsBody?.categoryBitMask = SpikeCategory
         self.physicsBody?.contactTestBitMask = BallCategory
