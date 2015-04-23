@@ -1,5 +1,5 @@
 //
-//  Ball.swift
+//  Goal.swift
 //  jotajota
 //
 //  Created by Jose Alcalá-Correa on 23/04/15.
@@ -9,19 +9,16 @@
 import UIKit
 import SpriteKit
 
-
-
-class Ball: SKSpriteNode {
+class Goal: SKSpriteNode {
     init() {
-        let radius : CGFloat = 22
+        let radius : CGFloat = 32
 
-        let texture = SKTexture(imageNamed:"ball")
+        let texture = SKTexture(imageNamed:"goal")
         super.init(texture: texture, color: nil, size: CGSizeMake(radius*2, radius*2))
-        self.name = "ball"
+        self.name = "goal"
         self.physicsBody = SKPhysicsBody(circleOfRadius: radius)
-        self.physicsBody?.friction = 0.0
-        self.physicsBody?.restitution = 0.8
-        self.physicsBody?.collisionBitMask = 1
+        self.physicsBody?.dynamic = false
+        self.physicsBody?.collisionBitMask = 0
     }
 
     required init(coder aDecoder: NSCoder) {

@@ -18,6 +18,8 @@
 		C09A63E41AE930DD00B07062 /* Bar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09A63E31AE930DD00B07062 /* Bar.swift */; };
 		C09A63E61AE930F800B07062 /* Spike.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09A63E51AE930F800B07062 /* Spike.swift */; };
 		C09A63E91AE9328700B07062 /* ball.png in Resources */ = {isa = PBXBuildFile; fileRef = C09A63E81AE9328700B07062 /* ball.png */; };
+		C09A63EB1AE938DB00B07062 /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09A63EA1AE938DB00B07062 /* Goal.swift */; };
+		C09A63ED1AE93A0200B07062 /* goal.png in Resources */ = {isa = PBXBuildFile; fileRef = C09A63EC1AE93A0200B07062 /* goal.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +48,8 @@
 		C09A63E31AE930DD00B07062 /* Bar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bar.swift; sourceTree = "<group>"; };
 		C09A63E51AE930F800B07062 /* Spike.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spike.swift; sourceTree = "<group>"; };
 		C09A63E81AE9328700B07062 /* ball.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ball.png; sourceTree = "<group>"; };
+		C09A63EA1AE938DB00B07062 /* Goal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Goal.swift; sourceTree = "<group>"; };
+		C09A63EC1AE93A0200B07062 /* goal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = goal.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +135,7 @@
 				C09A63E11AE930C900B07062 /* Ball.swift */,
 				C09A63E31AE930DD00B07062 /* Bar.swift */,
 				C09A63E51AE930F800B07062 /* Spike.swift */,
+				C09A63EA1AE938DB00B07062 /* Goal.swift */,
 			);
 			name = Objects;
 			sourceTree = "<group>";
@@ -138,6 +143,7 @@
 		C09A63E71AE9327B00B07062 /* Sprites */ = {
 			isa = PBXGroup;
 			children = (
+				C09A63EC1AE93A0200B07062 /* goal.png */,
 				C09A63E81AE9328700B07062 /* ball.png */,
 			);
 			name = Sprites;
@@ -224,6 +230,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C09A63CB1AE92F6500B07062 /* LaunchScreen.xib in Resources */,
+				C09A63ED1AE93A0200B07062 /* goal.png in Resources */,
 				C09A63C81AE92F6500B07062 /* Images.xcassets in Resources */,
 				C09A63E91AE9328700B07062 /* ball.png in Resources */,
 				C09A63C61AE92F6500B07062 /* Main.storyboard in Resources */,
@@ -250,6 +257,7 @@
 				C09A63C31AE92F6500B07062 /* GameViewController.swift in Sources */,
 				C09A63E61AE930F800B07062 /* Spike.swift in Sources */,
 				C09A63BD1AE92F6500B07062 /* AppDelegate.swift in Sources */,
+				C09A63EB1AE938DB00B07062 /* Goal.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

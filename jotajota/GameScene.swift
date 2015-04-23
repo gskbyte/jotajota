@@ -10,22 +10,39 @@ import SpriteKit
 
 class GameScene: SKScene {
     var ball : Ball!
+    var goal : Goal!
     var bars = Array<Bar>()
 
     override func didMoveToView(view: SKView) {
+        super.didMoveToView(view)
+        setupWorld()
+        setupGoal()
+        setupBall()
+        setupBars()
+    }
+
+    func setupWorld() {
         self.physicsWorld.gravity = CGVectorMake(0, -9.8)
         self.physicsBody = SKPhysicsBody(edgeLoopFromRect: self.frame)
-        
 
+    }
+
+    func setupBall() {
         ball = Ball()
         ball.position = CGPointMake(frame.size.width / 2, frame.size.height - 30)
         self.addChild(ball)
+    }
 
-        let bar0 = Bar(width: 40)
+    func setupGoal () {
+        goal = Goal()
+        goal.position = CGPointMake(size.width / 2 + 1, 200)
+        self.addChild(goal)
+    }
+
+    func setupBars() {
+        let bar0 = Bar(width: 200)
         bar0.position = CGPointMake(self.size.width / 2, 100)
         self.addChild(bar0)
-
-
     }
     
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
