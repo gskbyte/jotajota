@@ -19,7 +19,8 @@ class Goal: SKSpriteNode {
         self.physicsBody = SKPhysicsBody(circleOfRadius: radius)
         self.physicsBody?.dynamic = false
         self.physicsBody?.categoryBitMask = GoalCategory
-        
+        self.physicsBody?.collisionBitMask = 0
+        self.physicsBody?.contactTestBitMask = BallCategory
     }
 
     required init(coder aDecoder: NSCoder) {

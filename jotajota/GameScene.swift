@@ -128,48 +128,28 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
 
     func didBeginContact(contact: SKPhysicsContact) {
-        if(contact.bodyA.categoryBitMask != BallCategory && contact.bodyB.categoryBitMask != BallCategory) {
-            NSLog("no ball")
+        var ball : Ball?
+        var other : SKNode?
+        if contact.bodyA.categoryBitMask == BallCategory {
+            ball = contact.bodyA.node as! Ball?
+            other = contact.bodyB.node
+        } else if contact.bodyB.categoryBitMask == BallCategory {
+            ball = contact.bodyB.node as! Ball?
+            other = contact.bodyA.node
+        }
+
+        if ball == nil {
+            println("No ball in contact, fix categories")
             return
         }
 
-        if(contact.bodyA.categoryBitMask == BarCategory || contact.bodyB.categoryBitMask == BarCategory) {
-            NSLog("bar")
-            return
-        }
-
-        var interruptor : Interruptor?
-        if (contact.bodyA.categoryBitMask == InterruptorCategory) {
-            interruptor = contact.bodyA.node as! Interruptor?
-        } else if (contact.bodyB.categoryBitMask == InterruptorCategory) {
-            interruptor = contact.bodyB.node as! Interruptor?
-        }
-
-        if interruptor != nil {
-            interruptor?.spike?.removeFromParent()
-            return
-        }
-
-        var spike : Spike?
-        if (contact.bodyA.categoryBitMask == SpikeCategory) {
-            spike = contact.bodyA.node as! Spike?
-        } else if (contact.bodyB.categoryBitMask == SpikeCategory) {
-            spike = contact.bodyB.node as! Spike?
-        }
-        
-        if spike != nil {
+        if let interruptor = other as? Interruptor {
+            interruptor.spike?.removeFromParent()
+            interruptor.removeFromParent()
+        } else if let spike = other as? Spike {
             let scene = GameOverScene(size: self.size, playerWon:false)
             self.view?.presentScene(scene)
-        }
-
-        var goal : Goal?
-        if (contact.bodyA.categoryBitMask == GoalCategory) {
-            goal = contact.bodyA.node as! Goal?
-        } else if (contact.bodyB.categoryBitMask == GoalCategory) {
-            goal = contact.bodyB.node as! Goal?
-        }
-
-        if goal != nil {
+        } else if let goal = other as? Goal {
             let scene = GameOverScene(size: self.size, playerWon:true)
             self.view?.presentScene(scene)
         }
