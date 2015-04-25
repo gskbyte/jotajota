@@ -1,4 +1,4 @@
-# jotajota
+# jotajota la pelota
 This is an example game made during a small two-hours hackaton at a XING iOS dev offsite.
 It's written in **Swift** and uses **SpriteKit** and **CoreMotion**
 
