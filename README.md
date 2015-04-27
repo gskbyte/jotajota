@@ -5,4 +5,4 @@ It's written in **Swift** and uses **SpriteKit** and **CoreMotion**
 [Jose Alcalá Correa](http://www.twitter.com/gskbyte) &
 [Jorge Enrique Salgado Martín](http://www.twitter.com/jesalgadom)
 
-![Screenshot](screenshot.png "Screenshot")
+![Screenshot](screenshot.PNG "Screenshot")
