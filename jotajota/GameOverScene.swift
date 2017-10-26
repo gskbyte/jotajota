@@ -14,7 +14,8 @@ class GameOverScene: SKScene {
         super.init(size:size)
         let gameOverLabel = SKLabelNode(fontNamed:"Arial");
         gameOverLabel.fontSize = 42;
-        gameOverLabel.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
+        gameOverLabel.position = CGPoint(x: self.frame.midX,
+                                         y: self.frame.midY);
         if (playerWon) {
             gameOverLabel.text = "Game Won";
         } else {
@@ -27,8 +28,9 @@ class GameOverScene: SKScene {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         let newScene = GameScene(size: self.size)
         self.view?.presentScene(newScene)
     }
+    
 }

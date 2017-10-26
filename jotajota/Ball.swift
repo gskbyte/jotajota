@@ -16,7 +16,7 @@ class Ball: SKSpriteNode {
         let radius : CGFloat = 22
 
         let texture = SKTexture(imageNamed:"ball")
-        super.init(texture: texture, color: nil, size: CGSizeMake(radius*2, radius*2))
+        super.init(texture: texture, color: .clear, size: CGSize(width: radius*2, height: radius*2))
         self.name = "ball"
         self.physicsBody = SKPhysicsBody(circleOfRadius: radius)
         self.physicsBody?.friction = 0.0

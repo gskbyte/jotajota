@@ -14,10 +14,10 @@ class Goal: SKSpriteNode {
         let radius : CGFloat = 32
 
         let texture = SKTexture(imageNamed:"goal")
-        super.init(texture: texture, color: nil, size: CGSizeMake(radius*2, radius*2))
+        super.init(texture: texture, color: .clear, size: CGSize(width: radius*2, height: radius*2))
         self.name = "goal"
         self.physicsBody = SKPhysicsBody(circleOfRadius: radius)
-        self.physicsBody?.dynamic = false
+        self.physicsBody?.isDynamic = false
         self.physicsBody?.categoryBitMask = GoalCategory
         self.physicsBody?.collisionBitMask = 0
         self.physicsBody?.contactTestBitMask = BallCategory

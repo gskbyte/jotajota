@@ -11,12 +11,12 @@ import SpriteKit
 
 extension SKNode {
     class func unarchiveFromFile(file : String) -> SKNode? {
-        if let path = NSBundle.mainBundle().pathForResource(file, ofType: "sks") {
-            var sceneData = NSData(contentsOfFile: path, options: .DataReadingMappedIfSafe, error: nil)!
-            var archiver = NSKeyedUnarchiver(forReadingWithData: sceneData)
+        if let path = Bundle.main.path(forResource: file, ofType: "sks") {
+            let sceneData = try! Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
+            let archiver = NSKeyedUnarchiver(forReadingWith: sceneData)
             
             archiver.setClass(self.classForKeyedUnarchiver(), forClassName: "SKScene")
-            let scene = archiver.decodeObjectForKey(NSKeyedArchiveRootObjectKey) as! GameScene
+            let scene = archiver.decodeObject(forKey: NSKeyedArchiveRootObjectKey) as! GameScene
             archiver.finishDecoding()
             return scene
         } else {
@@ -34,11 +34,12 @@ class GameViewController: UIViewController {
         skView.showsFPS = true
         skView.showsNodeCount = true
         skView.ignoresSiblingOrder = true
-        scene.scaleMode = .ResizeFill
+        scene.scaleMode = .resizeFill
         skView.presentScene(scene)
     }
-
-    override func prefersStatusBarHidden() -> Bool {
+    
+    override var prefersStatusBarHidden: Bool {
         return true
     }
+    
 }

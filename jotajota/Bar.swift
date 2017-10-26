@@ -14,9 +14,9 @@ class Bar: SKSpriteNode {
     var rotable = false
 
     init(width: CGFloat) {
-        super.init(texture: nil, color: UIColor.redColor(), size: CGSizeMake(width, 10))
-        self.physicsBody = SKPhysicsBody(rectangleOfSize: size)
-        self.physicsBody?.dynamic = false
+        super.init(texture: nil, color: .red, size: CGSize(width: width, height: 10))
+        self.physicsBody = SKPhysicsBody(rectangleOf: size)
+        self.physicsBody?.isDynamic = false
 
         self.physicsBody?.categoryBitMask = BarCategory
         self.physicsBody?.contactTestBitMask = BallCategory

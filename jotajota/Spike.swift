@@ -14,10 +14,10 @@ class Spike: SKSpriteNode {
         let radius : CGFloat = 20
 
         let texture = SKTexture(imageNamed:"spike")
-        super.init(texture: texture, color: nil, size: CGSizeMake(radius*2, radius*2))
+        super.init(texture: texture, color: .clear, size: CGSize(width: radius*2, height: radius*2))
         self.physicsBody = SKPhysicsBody(circleOfRadius: radius)
 
-        self.physicsBody?.dynamic = false
+        self.physicsBody?.isDynamic = false
         self.physicsBody?.friction = 0.0
         self.physicsBody?.restitution = 0.4
 

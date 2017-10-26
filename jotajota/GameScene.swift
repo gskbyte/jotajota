@@ -17,8 +17,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var bars = Array<Bar>()
     var spikes = Array<Spike>()
 
-    override func didMoveToView(view: SKView) {
-        super.didMoveToView(view)
+    override func didMove(to view: SKView) {
+        super.didMove(to: view)
         setupWorld()
         setupGoal()
         setupBall()
@@ -33,41 +33,41 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
 
     func setupWorld() {
-        self.physicsWorld.gravity = CGVectorMake(0, -9.8)
-        self.physicsBody = SKPhysicsBody(edgeLoopFromRect: self.frame)
+        self.physicsWorld.gravity = CGVector(dx: 0, dy: -9.8)
+        self.physicsBody = SKPhysicsBody(edgeLoopFrom: self.frame)
         self.physicsWorld.contactDelegate = self;
     }
 
     func setupBall() {
         ball = Ball()
-        ball.position = CGPointMake(320, frame.size.height)
+        ball.position = CGPoint(x: 320, y: frame.size.height)
         self.addChild(ball)
     }
 
     func setupGoal () {
         goal = Goal()
-        goal.position = CGPointMake(30, 340)
+        goal.position = CGPoint(x: 30, y: 340)
         self.addChild(goal)
     }
 
     func setupPhase0() {
-        var bar = makeBar(200)
-        bar.position = CGPointMake(320, 500)
+        var bar = makeBar(width: 200)
+        bar.position = CGPoint(x: 320, y: 500)
         bar.zRotation = 0.3
 
-        bar = makeBar(200)
-        bar.position = CGPointMake(60, 470)
+        bar = makeBar(width: 200)
+        bar.position = CGPoint(x: 60, y: 470)
         bar.zRotation = -0.2;
 
         var spike = makeSpike()
-        spike.position = CGPointMake(190, 450)
+        spike.position = CGPoint(x: 190, y: 450)
 
         var interruptor = makeInterruptor()
-        interruptor.position = CGPointMake(60, 520)
+        interruptor.position = CGPoint(x: 60, y: 520)
         interruptor.spike = spike
 
         spike = makeSpike()
-        spike.position = CGPointMake(20, 520)
+        spike.position = CGPoint(x: 20, y: 520)
     }
 
     func setupPhase1() {
@@ -75,20 +75,20 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         var spike : Spike!
         var interruptor : Interruptor!
 
-        bar = makeBar(150)
-        bar.position = CGPointMake(300, 400)
+        bar = makeBar(width: 150)
+        bar.position = CGPoint(x: 300, y: 400)
         bar.zRotation = 1.5;
 
-        bar = makeBar(100)
-        bar.position = CGPointMake(240, 320)
+        bar = makeBar(width: 100)
+        bar.position = CGPoint(x: 240, y: 320)
         bar.zRotation = 0;
         bar.physicsBody?.restitution = 0.5
 
         spike = makeSpike()
-        spike.position = CGPointMake(160, 310)
+        spike.position = CGPoint(x: 160, y: 310)
 
-        bar = makeBar(120)
-        bar.position = CGPointMake(70, 320)
+        bar = makeBar(width: 120)
+        bar.position = CGPoint(x: 70, y: 320)
         bar.zRotation = 0;
     }
 
@@ -105,7 +105,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let spike = Spike()
         spike.name = "spike\(spikeId)"
         addChild(spike)
-        spikeId++
+        spikeId += 1
         return spike
     }
 
@@ -114,7 +114,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let interruptor = Interruptor()
         interruptor.name = "interruptor\(interruptorId)"
         addChild(interruptor)
-        interruptorId++
+        interruptorId += 1
         return interruptor
     }
 
@@ -123,11 +123,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let bar = Bar(width: width)
         bar.name = "bar\(barId)"
         addChild(bar)
-        barId++
+        barId += 1
         return bar
     }
-
-    func didBeginContact(contact: SKPhysicsContact) {
+    
+    func didBegin(_ contact: SKPhysicsContact) {
         var ball : Ball?
         var other : SKNode?
         if contact.bodyA.categoryBitMask == BallCategory {
@@ -139,38 +139,34 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
 
         if ball == nil {
-            println("No ball in contact, fix categories")
+            print("No ball in contact, fix categories")
             return
         }
 
         if let interruptor = other as? Interruptor {
             interruptor.spike?.removeFromParent()
             interruptor.removeFromParent()
-        } else if let spike = other as? Spike {
+        } else if other is Spike {
             let scene = GameOverScene(size: self.size, playerWon:false)
             self.view?.presentScene(scene)
-        } else if let goal = other as? Goal {
+        } else if other is Goal {
             let scene = GameOverScene(size: self.size, playerWon:true)
             self.view?.presentScene(scene)
         }
     }
 
-    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
-        /* Called when a touch begins */
-    }
-   
-    override func update(currentTime: CFTimeInterval) {
+    override func update(_ currentTime: TimeInterval) {
         /* Called before each frame is rendered */
         self.processUserMotionForUpdate(currentTime)
     }
     
-    func processUserMotionForUpdate(currentTime: NSTimeInterval) {
+    func processUserMotionForUpdate(_ currentTime: TimeInterval) {
         if let motionData = motionManager!.accelerometerData {
         let acceleration = motionData.acceleration
             if (fabs(acceleration.x) > 0.2 || fabs(acceleration.y) > 0.2) {
                 let currentGravity = self.physicsWorld.gravity                
-                let finalGravity = CGVectorMake(currentGravity.dx + CGFloat(acceleration.x)*20, currentGravity.dy + CGFloat(acceleration.y)*20)
-                physicsWorld.gravity = self.normalizeVector(finalGravity)
+                let finalGravity = CGVector(dx: currentGravity.dx + CGFloat(acceleration.x)*20, dy: currentGravity.dy + CGFloat(acceleration.y)*20)
+                physicsWorld.gravity = self.normalizeVector(vector: finalGravity)
             }
         }
     }
@@ -179,11 +175,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     let length = hypotf(Float(vector.dx), Float(vector.dy));
     
     if length == 0 {
-        return CGVectorMake(0, 0);
+        return CGVector(dx: 0, dy: 0);
     }
     
     let scale = 9.8 / length;
-    return CGVectorMake(vector.dx * CGFloat(scale), vector.dy * CGFloat(scale));
+    return CGVector(dx: vector.dx * CGFloat(scale), dy: vector.dy * CGFloat(scale));
     }
     
 }

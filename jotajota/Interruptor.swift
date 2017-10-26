@@ -13,12 +13,12 @@ class Interruptor: SKSpriteNode {
     weak var spike : Spike?
 
     init() {
-        let size = CGSizeMake(30, 30)
+        let size = CGSize(width: 30, height: 30)
 
-        super.init(texture: nil, color: UIColor.greenColor(), size: size)
+        super.init(texture: nil, color: .green, size: size)
         self.name = "interruptor"
-        self.physicsBody = SKPhysicsBody(rectangleOfSize: size)
-        self.physicsBody?.dynamic = false
+        self.physicsBody = SKPhysicsBody(rectangleOf: size)
+        self.physicsBody?.isDynamic = false
         self.physicsBody?.categoryBitMask = InterruptorCategory
         self.physicsBody?.collisionBitMask = 0
         self.physicsBody?.contactTestBitMask = BallCategory
